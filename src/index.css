@@ -1,0 +1,39 @@
+@import "tailwindcss";
+body {
+  font-family: 'Poppins', sans-serif;
+}
+
+/* Offer section */
+.perspective {
+  perspective: 1000px;
+}
+
+.preserve-3d {
+  transform-style: preserve-3d;
+}
+
+.backface-hidden {
+  backface-visibility: hidden;
+}
+
+.rotate-y-180 {
+  transform: rotateY(180deg);
+}
+
+/*Loading spinner */
+@keyframes loadingBar {
+  0% {
+    width: 0%;
+  }
+  50% {
+    width: 70%;
+  }
+  100% {
+    width: 100%;
+  }
+}
+
+/*Trainer*/
+.stairs-track {
+  transition: transform 1s cubic-bezier(0.65, 0, 0.35, 1);
+}
