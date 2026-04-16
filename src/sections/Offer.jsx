@@ -1,4 +1,7 @@
 import { useState } from "react";
+import training from "../assets/images/after1.jpg";
+import strength from "../assets/images/after2.jpg";
+import nutrition from "../assets/images/after3.jpg"; 
 
 export default function Offer() {
   const [flipped, setFlipped] = useState(false);
@@ -85,19 +88,19 @@ export default function Offer() {
             icon: "💪",
             title: "Training",
             text: "Structured workouts for maximum performance.",
-            img: "https://images.unsplash.com/photo-1558611848-73f7eb4001a1"
+            img: training
           },
           {
             icon: "🏋️",
             title: "Strength",
             text: "Build power and muscle effectively.",
-            img: "https://images.unsplash.com/photo-1546483875-ad9014c88eba"
+            img: strength
           },
           {
             icon: "🥗",
             title: "Nutrition",
             text: "Smart nutrition for faster results.",
-            img: "https://images.unsplash.com/photo-1490645935967-10de6ba17061"
+            img: nutrition
           }
         ].map((item, i) => (
           <div

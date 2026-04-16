@@ -6,3 +6,8 @@ export default defineConfig({
   plugins: [react() , tailwindcss()],
   base: '/PersonalTrainer/'
 })
+
+//git add .
+//git commit -m "message"
+//git push 
+//npm run deploygit 
