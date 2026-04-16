@@ -37,19 +37,31 @@ Error generating stack: `+e.message+`
         overflow-hidden\r
         flex flex-col\r
         min-h-[90vh]\r
-      `,children:e})]})}function m(){let[e,t]=(0,l.useState)(!1);(0,l.useEffect)(()=>{document.body.style.overflow=e?`hidden`:`auto`},[e]);let n=e=>{let n=document.getElementById(e);if(!n)return;let r=n.getBoundingClientRect().top+window.pageYOffset-90;window.scrollTo({top:r,behavior:`smooth`}),t(!1)};return(0,f.jsxs)(f.Fragment,{children:[(0,f.jsxs)(`div`,{className:`\r
-        sticky top-0 z-40\r
+      `,children:e})]})}function m(){let[e,t]=(0,l.useState)(!1),[n,r]=(0,l.useState)(`home`);(0,l.useEffect)(()=>{document.body.style.overflow=e?`hidden`:`auto`},[e]),(0,l.useEffect)(()=>{let e=[`home`,`trainer`,`offer`,`transformation`,`pricing`],t=()=>{let t=window.innerHeight*.4,n=`home`;e.forEach(e=>{let r=document.getElementById(e);if(!r)return;let i=r.getBoundingClientRect();i.top<=t&&i.bottom>=t&&(n=e)}),r(n)};return window.addEventListener(`scroll`,t),t(),()=>window.removeEventListener(`scroll`,t)},[]);let i=e=>{let n=document.getElementById(e);if(!n)return;let r=n.getBoundingClientRect().top+window.pageYOffset+-90;window.scrollTo({top:r,behavior:`smooth`}),t(!1)},a=[{name:`Home`,id:`home`},{name:`Trainer`,id:`trainer`},{name:`Our Way`,id:`offer`},{name:`Transformations`,id:`transformation`},{name:`Shop`,id:`pricing`}];return(0,f.jsxs)(f.Fragment,{children:[(0,f.jsxs)(`div`,{className:`\r
+        fixed top-0 left-0 w-full z-50\r
         flex items-center justify-between\r
         px-6 md:px-10 py-5\r
-        bg-white/70 backdrop-blur-md\r
-        border-b border-gray-200\r
-      `,children:[(0,f.jsxs)(`div`,{className:`text-lg font-bold tracking-wide`,children:[(0,f.jsx)(`span`,{className:`text-black`,children:`YOUR`}),` `,(0,f.jsx)(`span`,{className:`text-blue-600`,children:`BRAND`})]}),(0,f.jsxs)(`nav`,{className:`hidden md:flex gap-10 text-sm font-medium text-gray-700`,children:[(0,f.jsxs)(`a`,{onClick:()=>n(`trainer`),className:`relative group cursor-pointer`,children:[`Trainer`,(0,f.jsx)(`span`,{className:`absolute left-0 -bottom-1 w-0 h-[2px] bg-blue-600 transition-all group-hover:w-full`})]}),(0,f.jsxs)(`a`,{onClick:()=>n(`offer`),className:`relative group cursor-pointer`,children:[`Our Way`,(0,f.jsx)(`span`,{className:`absolute left-0 -bottom-1 w-0 h-[2px] bg-blue-600 transition-all group-hover:w-full`})]}),(0,f.jsxs)(`a`,{onClick:()=>n(`transformation`),className:`relative group cursor-pointer`,children:[`Transformations`,(0,f.jsx)(`span`,{className:`absolute left-0 -bottom-1 w-0 h-[2px] bg-blue-600 transition-all group-hover:w-full`})]}),(0,f.jsxs)(`a`,{onClick:()=>n(`pricing`),className:`relative group cursor-pointer`,children:[`Shop`,(0,f.jsx)(`span`,{className:`absolute left-0 -bottom-1 w-0 h-[2px] bg-blue-600 transition-all group-hover:w-full`})]})]}),(0,f.jsx)(`button`,{onClick:()=>t(!0),className:`md:hidden text-2xl`,children:`☰`})]}),(0,f.jsxs)(`div`,{className:`
+        bg-white/60 backdrop-blur-xl\r
+        border-b border-blue-100\r
+        shadow-[0_8px_30px_rgba(37,99,235,0.15)]\r
+      `,children:[(0,f.jsxs)(`div`,{className:`text-lg font-bold tracking-wide`,children:[(0,f.jsx)(`span`,{className:`text-black`,children:`YOUR`}),` `,(0,f.jsx)(`span`,{className:`text-blue-600`,children:`BRAND`})]}),(0,f.jsx)(`nav`,{className:`hidden md:flex gap-10 text-sm font-medium`,children:a.map(e=>(0,f.jsxs)(`a`,{onClick:()=>i(e.id),className:`
+                relative cursor-pointer transition
+
+                ${n===e.id?`text-blue-600`:`text-gray-600 hover:text-blue-600`}
+              `,children:[e.name,(0,f.jsx)(`span`,{className:`
+                  absolute left-0 -bottom-1 h-[2px] bg-blue-600
+                  transition-all duration-300
+                  ${n===e.id?`w-full`:`w-0`}
+                `})]},e.id))}),(0,f.jsx)(`button`,{onClick:()=>t(!0),className:`md:hidden text-2xl text-blue-600`,children:`☰`})]}),(0,f.jsxs)(`div`,{className:`
           fixed inset-0 z-50
           flex flex-col items-center justify-center
           bg-black text-white
           transition-transform duration-500
           ${e?`translate-y-0`:`-translate-y-full`}
-        `,children:[(0,f.jsx)(`button`,{onClick:()=>t(!1),className:`absolute top-6 right-6 text-3xl hover:rotate-90 transition`,children:`✕`}),(0,f.jsxs)(`div`,{className:`flex flex-col gap-10 text-4xl font-bold`,children:[(0,f.jsx)(`a`,{onClick:()=>n(`trainer`),className:`hover:text-blue-400 cursor-pointer`,children:`Trainer`}),(0,f.jsx)(`a`,{onClick:()=>n(`offer`),className:`hover:text-blue-400 cursor-pointer`,children:`Our Way`}),(0,f.jsx)(`a`,{onClick:()=>n(`transformation`),className:`hover:text-blue-400 cursor-pointer`,children:`Transformations`}),(0,f.jsx)(`a`,{onClick:()=>n(`pricing`),className:`hover:text-blue-400 cursor-pointer`,children:`Shop`})]}),(0,f.jsx)(`p`,{className:`absolute bottom-10 text-sm text-gray-400`,children:`Transform your body. Build your mindset.`})]})]})}var h=`/PersonalTrainer/assets/mainVideo-DJ23VBkT.mp4`;function g(){let[e,t]=(0,l.useState)(!1);return(0,f.jsxs)(`section`,{className:`\r
+        `,children:[(0,f.jsx)(`button`,{onClick:()=>t(!1),className:`absolute top-6 right-6 text-3xl`,children:`✕`}),(0,f.jsx)(`div`,{className:`flex flex-col gap-10 text-4xl font-bold`,children:a.map(e=>(0,f.jsx)(`a`,{onClick:()=>i(e.id),className:`
+                cursor-pointer transition
+                ${n===e.id?`text-blue-400`:``}
+              `,children:e.name},e.id))})]})]})}var h=`/PersonalTrainer/assets/mainVideo-DJ23VBkT.mp4`;function g(){let[e,t]=(0,l.useState)(!1),n=e=>{let n=document.getElementById(e);if(!n)return;let r=n.getBoundingClientRect().top+window.pageYOffset-90;window.scrollTo({top:r,behavior:`smooth`}),t(!1)};return(0,f.jsxs)(`section`,{id:`home`,className:`\r
       relative\r
       flex-1 grid lg:grid-cols-2\r
       px-6 md:px-12 lg:px-20\r
@@ -84,20 +96,20 @@ Error generating stack: `+e.message+`
             text-sm font-semibold\r
             shadow-lg shadow-blue-500/30\r
             hover:scale-105 transition\r
-          `,children:`START NOW`}),(0,f.jsx)(`button`,{className:`\r
+          `,onClick:()=>n(`pricing`),children:`START NOW`}),(0,f.jsx)(`button`,{className:`\r
             w-full sm:w-auto\r
             border border-gray-300\r
             px-8 py-3\r
             rounded-full\r
             text-sm font-semibold\r
             hover:bg-gray-100 transition\r
-          `,children:`LEARN MORE`})]})]}),(0,f.jsxs)(`div`,{className:`hidden lg:flex justify-end pr-12 relative`,children:[(0,f.jsx)(`div`,{className:`absolute right-0 top-0 w-[250px] h-[250px] bg-blue-500/20 blur-[120px] rounded-full`}),(0,f.jsx)(`div`,{className:`w-full max-w-[380px] lg:max-w-[440px] xl:max-w-[500px] relative z-10`,children:(0,f.jsxs)(`div`,{className:`relative w-full h-[440px] lg:h-[540px] xl:h-[620px] rounded-2xl overflow-hidden shadow-2xl border border-gray-200`,children:[(0,f.jsx)(`video`,{src:h,autoPlay:!0,loop:!0,muted:!0,playsInline:!0,className:`absolute inset-0 w-full h-full object-cover`}),(0,f.jsx)(`div`,{className:`absolute inset-0 bg-black/10`})]})})]})]})}var _=`/PersonalTrainer/assets/after1-BuAIXGpi.jpg`,v=`/PersonalTrainer/assets/after2-BpHWyuuK.jpg`,y=`/PersonalTrainer/assets/after3-D7cOCHdq.jpg`;function b(){let[e,t]=(0,l.useState)(!1);return(0,f.jsxs)(`section`,{id:`offer`,className:`px-6 md:px-12 lg:px-20 py-20`,children:[(0,f.jsxs)(`div`,{className:`grid lg:grid-cols-2 gap-14 mb-20 items-center`,children:[(0,f.jsx)(`div`,{className:`group relative h-[340px] cursor-pointer perspective`,onClick:()=>t(!e),children:(0,f.jsxs)(`div`,{className:`
-              relative w-full h-full
-              transition-transform duration-700
-              preserve-3d
-              ${e?`rotate-y-180`:``}
-              lg:group-hover:rotate-y-180
-            `,children:[(0,f.jsx)(`div`,{className:`absolute inset-0 bg-black text-white rounded-2xl p-10 backface-hidden flex flex-col justify-between shadow-[0_20px_60px_rgba(0,0,0,0.4)]`,children:(0,f.jsxs)(`div`,{children:[(0,f.jsx)(`p`,{className:`text-xs tracking-widest text-blue-400 mb-2`,children:`GET YOUR`}),(0,f.jsx)(`h2`,{className:`text-4xl font-bold mb-4`,children:`MOVE ON 🚀`}),(0,f.jsx)(`p`,{className:`text-sm opacity-70`,children:`Start your transformation journey today.`})]})}),(0,f.jsx)(`div`,{className:`absolute inset-0 bg-white text-black rounded-2xl p-10 rotate-y-180 backface-hidden flex flex-col justify-between shadow-[0_20px_60px_rgba(0,0,0,0.2)] border border-gray-200`,children:(0,f.jsxs)(`div`,{children:[(0,f.jsx)(`h3`,{className:`text-2xl font-semibold mb-4 text-blue-600`,children:`Why it works 💪`}),(0,f.jsxs)(`ul`,{className:`space-y-2 text-sm text-gray-600`,children:[(0,f.jsx)(`li`,{children:`🔥 Step-by-step plan`}),(0,f.jsx)(`li`,{children:`⚡ Fast progress`}),(0,f.jsx)(`li`,{children:`🧠 Mindset system`}),(0,f.jsx)(`li`,{children:`📈 Weekly tracking`})]})]})})]})}),(0,f.jsxs)(`div`,{className:`max-w-xl`,children:[(0,f.jsxs)(`h2`,{className:`text-4xl md:text-5xl font-bold mb-6`,children:[`FITNESS `,(0,f.jsx)(`span`,{className:`text-blue-600`,children:`SYSTEM`}),` 🏆`]}),(0,f.jsx)(`p`,{className:`text-gray-600 mb-4`,children:`This is a complete system designed to transform your body and mindset.`}),(0,f.jsx)(`p`,{className:`text-gray-600`,children:`Built on real experience and proven results.`})]})]}),(0,f.jsx)(`div`,{className:`grid md:grid-cols-3 gap-10`,children:[{icon:`💪`,title:`Training`,text:`Structured workouts for maximum performance.`,img:_},{icon:`🏋️`,title:`Strength`,text:`Build power and muscle effectively.`,img:v},{icon:`🥗`,title:`Nutrition`,text:`Smart nutrition for faster results.`,img:y}].map((e,t)=>(0,f.jsxs)(`div`,{className:`\r
+          `,onClick:()=>n(`pricing`),children:`LEARN MORE`})]})]}),(0,f.jsxs)(`div`,{className:`hidden lg:flex justify-end pr-12 relative`,children:[(0,f.jsx)(`div`,{className:`absolute right-0 top-0 w-[250px] h-[250px] bg-blue-500/20 blur-[120px] rounded-full`}),(0,f.jsx)(`div`,{className:`w-full max-w-[380px] lg:max-w-[440px] xl:max-w-[500px] relative z-10`,children:(0,f.jsxs)(`div`,{className:`relative w-full h-[440px] lg:h-[540px] xl:h-[620px] rounded-2xl overflow-hidden shadow-2xl border border-gray-200`,children:[(0,f.jsx)(`video`,{src:h,autoPlay:!0,loop:!0,muted:!0,playsInline:!0,className:`absolute inset-0 w-full h-full object-cover`}),(0,f.jsx)(`div`,{className:`absolute inset-0 bg-black/10`})]})})]})]})}var _=`/PersonalTrainer/assets/after1-BuAIXGpi.jpg`,v=`/PersonalTrainer/assets/after2-BpHWyuuK.jpg`,y=`/PersonalTrainer/assets/after3-D7cOCHdq.jpg`;function b(){let[e,t]=(0,l.useState)(!1);return(0,f.jsxs)(`section`,{id:`offer`,className:`px-6 md:px-12 lg:px-20 py-20`,children:[(0,f.jsxs)(`div`,{className:`grid lg:grid-cols-2 gap-14 mb-20 items-center`,children:[(0,f.jsx)(`div`,{className:`group relative h-[340px] cursor-pointer perspective`,onClick:()=>t(!e),children:(0,f.jsxs)(`div`,{className:`
+      relative w-full h-full
+      transition-transform duration-700
+      preserve-3d
+      ${e?`rotate-y-180`:``}
+      lg:group-hover:rotate-y-180
+    `,children:[(0,f.jsxs)(`div`,{className:`absolute inset-0 bg-black text-white rounded-2xl p-10 backface-hidden flex flex-col justify-between shadow-[0_20px_60px_rgba(0,0,0,0.4)]`,children:[(0,f.jsxs)(`div`,{children:[(0,f.jsx)(`p`,{className:`text-xs tracking-widest text-blue-400 mb-2`,children:`GET YOUR`}),(0,f.jsx)(`h2`,{className:`text-4xl font-bold mb-4`,children:`MOVE ON 🚀`}),(0,f.jsx)(`p`,{className:`text-sm opacity-70`,children:`Start your transformation journey today. Real transformation is not just about how you look — it's about who you become.`})]}),(0,f.jsxs)(`div`,{className:`text-xs opacity-60 mt-6`,children:[(0,f.jsx)(`p`,{className:`hidden lg:block`,children:`👉 Hover to discover more`}),(0,f.jsx)(`p`,{className:`lg:hidden`,children:`👉 Tap to flip`})]})]}),(0,f.jsxs)(`div`,{className:`absolute inset-0 bg-white text-black rounded-2xl p-10 rotate-y-180 backface-hidden flex flex-col justify-between shadow-[0_20px_60px_rgba(0,0,0,0.2)] border border-gray-200`,children:[(0,f.jsxs)(`div`,{children:[(0,f.jsx)(`h3`,{className:`text-2xl font-semibold mb-4 text-blue-600`,children:`Why it works 💪`}),(0,f.jsxs)(`ul`,{className:`space-y-2 text-sm text-gray-600`,children:[(0,f.jsx)(`li`,{children:`🔥 Step-by-step plan`}),(0,f.jsx)(`li`,{children:`⚡ Fast progress`}),(0,f.jsx)(`li`,{children:`🧠 Mindset system`}),(0,f.jsx)(`li`,{children:`📈 Weekly tracking`})]})]}),(0,f.jsx)(`p`,{className:`text-xs text-gray-400`,children:`Real results. Real system.`})]})]})}),(0,f.jsxs)(`div`,{className:`max-w-xl`,children:[(0,f.jsxs)(`h2`,{className:`text-4xl md:text-5xl font-bold mb-6`,children:[`FITNESS `,(0,f.jsx)(`span`,{className:`text-blue-600`,children:`SYSTEM`}),` 🏆`]}),(0,f.jsx)(`p`,{className:`text-gray-600 mb-4`,children:`This is a complete system designed to transform your body and mindset.`}),(0,f.jsx)(`p`,{className:`text-gray-600`,children:`Built on real experience and proven results.`})]})]}),(0,f.jsx)(`div`,{className:`grid md:grid-cols-3 gap-10`,children:[{icon:`💪`,title:`Training`,text:`Structured workouts for maximum performance.`,img:_},{icon:`🏋️`,title:`Strength`,text:`Build power and muscle effectively.`,img:v},{icon:`🥗`,title:`Nutrition`,text:`Smart nutrition for faster results.`,img:y}].map((e,t)=>(0,f.jsxs)(`div`,{className:`\r
               relative\r
               bg-white/80 backdrop-blur-md\r
               rounded-2xl\r
@@ -172,18 +184,18 @@ Error generating stack: `+e.message+`
                 text-sm font-semibold\r
                 shadow-lg shadow-blue-500/30\r
                 hover:scale-105 transition\r
-              `,children:`SHOW MORE`})]})]}),o&&(0,f.jsx)(`div`,{className:`fixed inset-0 bg-white/80 backdrop-blur-sm flex items-center justify-center z-[999]`,children:(0,f.jsx)(`div`,{className:`w-16 h-16 border-4 border-blue-600 border-t-transparent rounded-full animate-spin`})})]})}var ce=`/PersonalTrainer/assets/trainer-BpipYZfa.jpg`,le=`/PersonalTrainer/assets/gym1-BFOlTuJj.jpg`,ue=`/PersonalTrainer/assets/gym2-B-tgtB7m.jpg`;function T(){return(0,f.jsx)(`section`,{id:`trainer`,className:`px-6 md:px-12 lg:px-20 py-20`,children:(0,f.jsxs)(`div`,{className:`grid lg:grid-cols-2 gap-14 items-center`,children:[(0,f.jsxs)(`div`,{className:`flex justify-center lg:justify-start relative`,children:[(0,f.jsx)(`div`,{className:`absolute w-[250px] h-[250px] bg-blue-500/20 blur-[120px] rounded-full -z-10`}),(0,f.jsx)(`img`,{src:ce,className:`\r
-              w-[75%] max-w-[380px]\r
-              sm:max-w-[420px]\r
-              md:max-w-[460px]\r
-              lg:max-w-[480px]\r
-              h-auto\r
-              object-cover\r
-              rounded-2xl\r
-              shadow-[0_25px_60px_rgba(0,0,0,0.25)]\r
-              transition\r
-              hover:scale-[1.02]\r
-            `})]}),(0,f.jsxs)(`div`,{className:`max-w-xl`,children:[(0,f.jsxs)(`h2`,{className:`\r
+              `,children:`SHOW MORE`})]})]}),o&&(0,f.jsx)(`div`,{className:`fixed inset-0 bg-white/80 backdrop-blur-sm flex items-center justify-center z-[999]`,children:(0,f.jsx)(`div`,{className:`w-16 h-16 border-4 border-blue-600 border-t-transparent rounded-full animate-spin`})})]})}var ce=`/PersonalTrainer/assets/gym1-BFOlTuJj.jpg`,le=`/PersonalTrainer/assets/gym2-B-tgtB7m.jpg`;function ue(){return(0,f.jsx)(`section`,{id:`trainer`,className:`px-6 md:px-12 lg:px-20 py-20`,children:(0,f.jsxs)(`div`,{className:`grid lg:grid-cols-2 gap-14 items-center`,children:[(0,f.jsxs)(`div`,{className:`flex justify-center lg:justify-start relative`,children:[(0,f.jsx)(`div`,{className:`absolute w-[250px] h-[250px] bg-blue-500/20 blur-[120px] rounded-full -z-10`}),(0,f.jsx)(`img`,{src:re,className:`\r
+    w-[75%]\r
+    max-w-[340px]\r
+    sm:max-w-[380px]\r
+    md:max-w-[420px]\r
+    lg:max-w-[440px]\r
+    h-auto\r
+    rounded-2xl\r
+    shadow-[0_25px_60px_rgba(0,0,0,0.25)]\r
+    transition\r
+\r
+  `,style:{imageRendering:`auto`}})]}),(0,f.jsxs)(`div`,{className:`max-w-xl`,children:[(0,f.jsxs)(`h2`,{className:`\r
             text-3xl sm:text-4xl md:text-5xl\r
             font-bold mb-6\r
             text-gray-900\r
@@ -201,19 +213,19 @@ Error generating stack: `+e.message+`
               border border-white/40\r
               hover:scale-[1.03]\r
               transition\r
-            `,children:[(0,f.jsx)(`p`,{className:`text-lg font-bold text-blue-600`,children:`5+ Years`}),(0,f.jsx)(`p`,{className:`text-xs text-gray-500 mt-1`,children:`Experience`})]})]}),(0,f.jsx)(`p`,{className:`text-gray-600 mb-10 text-sm md:text-base leading-relaxed`,children:`Whether you're just starting or already experienced, everything is adapted to your level and your goals.`}),(0,f.jsxs)(`div`,{className:`grid grid-cols-2 gap-4`,children:[(0,f.jsx)(`img`,{src:le,className:`\r
+            `,children:[(0,f.jsx)(`p`,{className:`text-lg font-bold text-blue-600`,children:`5+ Years`}),(0,f.jsx)(`p`,{className:`text-xs text-gray-500 mt-1`,children:`Experience`})]})]}),(0,f.jsx)(`p`,{className:`text-gray-600 mb-10 text-sm md:text-base leading-relaxed`,children:`Whether you're just starting or already experienced, everything is adapted to your level and your goals.`}),(0,f.jsxs)(`div`,{className:`grid grid-cols-2 gap-4`,children:[(0,f.jsx)(`img`,{src:ce,className:`\r
                 w-full h-[150px] sm:h-[180px] md:h-[200px]\r
                 object-cover rounded-xl\r
                 shadow-md\r
                 hover:scale-[1.03]\r
                 transition\r
-              `}),(0,f.jsx)(`img`,{src:ue,className:`\r
+              `}),(0,f.jsx)(`img`,{src:le,className:`\r
                 w-full h-[150px] sm:h-[180px] md:h-[200px]\r
                 object-cover rounded-xl\r
                 shadow-md\r
                 hover:scale-[1.03]\r
                 transition\r
-              `})]})]})]})})}function E(){return(0,f.jsxs)(`section`,{id:`pricing`,className:`px-6 md:px-12 lg:px-20 py-24`,children:[(0,f.jsxs)(`div`,{className:`text-center mb-16`,children:[(0,f.jsxs)(`h2`,{className:`text-4xl md:text-5xl font-bold mb-4`,children:[`CHOOSE YOUR`,` `,(0,f.jsx)(`span`,{className:`text-blue-600`,children:`PLAN`}),` `,`💰`]}),(0,f.jsx)(`p`,{className:`text-gray-500 max-w-xl mx-auto`,children:`Pick the plan that fits your goals and start your transformation today.`})]}),(0,f.jsxs)(`div`,{className:`grid md:grid-cols-3 gap-10`,children:[(0,f.jsxs)(`div`,{className:`\r
+              `})]})]})]})})}function T(){return(0,f.jsxs)(`section`,{id:`pricing`,className:`px-6 md:px-12 lg:px-20 py-24`,children:[(0,f.jsxs)(`div`,{className:`text-center mb-16`,children:[(0,f.jsxs)(`h2`,{className:`text-4xl md:text-5xl font-bold mb-4`,children:[`CHOOSE YOUR`,` `,(0,f.jsx)(`span`,{className:`text-blue-600`,children:`PLAN`}),` `,`💰`]}),(0,f.jsx)(`p`,{className:`text-gray-500 max-w-xl mx-auto`,children:`Pick the plan that fits your goals and start your transformation today.`})]}),(0,f.jsxs)(`div`,{className:`grid md:grid-cols-3 gap-10`,children:[(0,f.jsxs)(`div`,{className:`\r
           bg-white/80 backdrop-blur-md\r
           rounded-2xl p-8\r
           border border-blue-100\r
@@ -245,7 +257,23 @@ Error generating stack: `+e.message+`
           hover:-translate-y-2\r
           shadow-[0_20px_60px_rgba(37,99,235,0.15)]\r
           hover:shadow-[0_30px_80px_rgba(37,99,235,0.3)]\r
-        `,children:[(0,f.jsx)(`h3`,{className:`text-xl font-semibold mb-2`,children:`Elite`}),(0,f.jsx)(`p`,{className:`text-gray-500 mb-6 text-sm`,children:`For serious results`}),(0,f.jsxs)(`p`,{className:`text-4xl font-bold mb-6`,children:[`$149`,(0,f.jsx)(`span`,{className:`text-sm text-gray-400`,children:`/month`})]}),(0,f.jsxs)(`ul`,{className:`text-gray-600 space-y-3 text-sm mb-8`,children:[(0,f.jsx)(`li`,{children:`✔ Everything in Pro`}),(0,f.jsx)(`li`,{children:`✔ Daily support`}),(0,f.jsx)(`li`,{children:`✔ Custom adjustments`}),(0,f.jsx)(`li`,{children:`✔ Priority access`})]})]})]})]})}function de({children:e}){return(0,f.jsx)(`div`,{className:`px-4 md:px-8 py-10`,children:(0,f.jsx)(`div`,{className:`
+        `,children:[(0,f.jsx)(`h3`,{className:`text-xl font-semibold mb-2`,children:`Elite`}),(0,f.jsx)(`p`,{className:`text-gray-500 mb-6 text-sm`,children:`For serious results`}),(0,f.jsxs)(`p`,{className:`text-4xl font-bold mb-6`,children:[`$149`,(0,f.jsx)(`span`,{className:`text-sm text-gray-400`,children:`/month`})]}),(0,f.jsxs)(`ul`,{className:`text-gray-600 space-y-3 text-sm mb-8`,children:[(0,f.jsx)(`li`,{children:`✔ Everything in Pro`}),(0,f.jsx)(`li`,{children:`✔ Daily support`}),(0,f.jsx)(`li`,{children:`✔ Custom adjustments`}),(0,f.jsx)(`li`,{children:`✔ Priority access`})]})]})]})]})}function E(){let[e,t]=(0,l.useState)(!1);return(0,l.useEffect)(()=>{let e=()=>{t(window.scrollY>300)};return window.addEventListener(`scroll`,e),()=>window.removeEventListener(`scroll`,e)},[]),(0,f.jsx)(`button`,{onClick:()=>window.scrollTo({top:0,behavior:`smooth`}),className:`
+    hidden lg:flex
+    fixed bottom-8 right-8 z-50
+    w-14 h-14
+    items-center justify-center
+    rounded-full
+
+    bg-blue-600 text-white
+
+    shadow-[0_10px_40px_rgba(37,99,235,0.5)]
+    hover:shadow-[0_20px_60px_rgba(37,99,235,0.7)]
+
+    transition-all duration-300
+
+    ${e?`opacity-100 scale-100`:`opacity-0 scale-75 pointer-events-none`}
+    hover:scale-110
+  `,children:`↑`})}function de({children:e}){return(0,f.jsx)(`div`,{className:`px-4 md:px-8 py-10`,children:(0,f.jsx)(`div`,{className:`
         bg-white/90 backdrop-blur-md
         rounded-3xl
         shadow-[0_20px_60px_rgba(0,0,0,0.15)]
@@ -253,4 +281,4 @@ Error generating stack: `+e.message+`
         overflow-hidden
         transition
         hover:shadow-[0_30px_80px_rgba(0,0,0,0.2)]
-      `,children:e})})}function fe(){return(0,f.jsx)(p,{children:(0,f.jsxs)(`section`,{children:[(0,f.jsxs)(de,{children:[(0,f.jsx)(m,{}),(0,f.jsx)(g,{})]}),(0,f.jsx)(de,{children:(0,f.jsx)(T,{})}),(0,f.jsx)(de,{children:(0,f.jsx)(b,{})}),(0,f.jsx)(de,{children:(0,f.jsx)(se,{})}),(0,f.jsx)(de,{children:(0,f.jsx)(E,{})})]})})}(0,u.createRoot)(document.getElementById(`root`)).render((0,f.jsx)(l.StrictMode,{children:(0,f.jsx)(fe,{})}));
+      `,children:e})})}function fe(){return(0,f.jsxs)(p,{children:[(0,f.jsx)(m,{}),(0,f.jsx)(`div`,{className:`pt-[90px]`,children:(0,f.jsxs)(`section`,{children:[(0,f.jsx)(de,{children:(0,f.jsx)(g,{})}),(0,f.jsx)(de,{children:(0,f.jsx)(ue,{})}),(0,f.jsx)(de,{children:(0,f.jsx)(b,{})}),(0,f.jsx)(de,{children:(0,f.jsx)(se,{})}),(0,f.jsx)(de,{children:(0,f.jsx)(T,{})})]})}),(0,f.jsx)(E,{})]})}(0,u.createRoot)(document.getElementById(`root`)).render((0,f.jsx)(l.StrictMode,{children:(0,f.jsx)(fe,{})}));
