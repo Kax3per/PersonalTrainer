@@ -2,22 +2,52 @@ import { useState, useEffect } from "react";
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
+  const [active, setActive] = useState("home");
 
   useEffect(() => {
     document.body.style.overflow = open ? "hidden" : "auto";
   }, [open]);
 
-  // 🔥 SCROLL FUNCTION
+  // 🔥 POPRAWIONY SCROLL SPY (NAJWAŻNIEJSZE)
+  useEffect(() => {
+    const sections = ["home", "trainer", "offer", "transformation", "pricing"];
+
+    const handleScroll = () => {
+      const middle = window.innerHeight * 0.4;
+
+      let current = "home";
+
+      sections.forEach((id) => {
+        const el = document.getElementById(id);
+        if (!el) return;
+
+        const rect = el.getBoundingClientRect();
+
+        if (rect.top <= middle && rect.bottom >= middle) {
+          current = id;
+        }
+      });
+
+      setActive(current);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    handleScroll();
+
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  // 🔥 SCROLL
   const scrollToSection = (id) => {
     const el = document.getElementById(id);
     if (!el) return;
 
-    const navbarHeight = 90; // dopasuj jak trzeba
+    const yOffset = -90;
 
     const y =
       el.getBoundingClientRect().top +
-      window.pageYOffset -
-      navbarHeight;
+      window.pageYOffset +
+      yOffset;
 
     window.scrollTo({
       top: y,
@@ -27,52 +57,65 @@ export default function Navbar() {
     setOpen(false);
   };
 
+  const links = [
+    { name: "Home", id: "home" },
+    { name: "Trainer", id: "trainer" },
+    { name: "Our Way", id: "offer" },
+    { name: "Transformations", id: "transformation" }, // 🔥 FIX
+    { name: "Shop", id: "pricing" },
+  ];
+
   return (
     <>
       {/* NAVBAR */}
       <div className="
-        sticky top-0 z-40
+        fixed top-0 left-0 w-full z-50
         flex items-center justify-between
         px-6 md:px-10 py-5
-        bg-white/70 backdrop-blur-md
-        border-b border-gray-200
+        bg-white/60 backdrop-blur-xl
+        border-b border-blue-100
+        shadow-[0_8px_30px_rgba(37,99,235,0.15)]
       ">
         
-        {/* LOGO */}
         <div className="text-lg font-bold tracking-wide">
           <span className="text-black">YOUR</span>{" "}
           <span className="text-blue-600">BRAND</span>
         </div>
 
         {/* DESKTOP */}
-        <nav className="hidden md:flex gap-10 text-sm font-medium text-gray-700">
+        <nav className="hidden md:flex gap-10 text-sm font-medium">
 
-          <a onClick={() => scrollToSection("trainer")} className="relative group cursor-pointer">
-            Trainer
-            <span className="absolute left-0 -bottom-1 w-0 h-[2px] bg-blue-600 transition-all group-hover:w-full"></span>
-          </a>
+          {links.map((item) => (
+            <a
+              key={item.id}
+              onClick={() => scrollToSection(item.id)}
+              className={`
+                relative cursor-pointer transition
 
-          <a onClick={() => scrollToSection("offer")} className="relative group cursor-pointer">
-            Our Way
-            <span className="absolute left-0 -bottom-1 w-0 h-[2px] bg-blue-600 transition-all group-hover:w-full"></span>
-          </a>
+                ${active === item.id
+                  ? "text-blue-600"
+                  : "text-gray-600 hover:text-blue-600"
+                }
+              `}
+            >
+              {item.name}
 
-          <a onClick={() => scrollToSection("transformation")} className="relative group cursor-pointer">
-            Transformations
-            <span className="absolute left-0 -bottom-1 w-0 h-[2px] bg-blue-600 transition-all group-hover:w-full"></span>
-          </a>
-
-          <a onClick={() => scrollToSection("pricing")} className="relative group cursor-pointer">
-            Shop
-            <span className="absolute left-0 -bottom-1 w-0 h-[2px] bg-blue-600 transition-all group-hover:w-full"></span>
-          </a>
+              <span
+                className={`
+                  absolute left-0 -bottom-1 h-[2px] bg-blue-600
+                  transition-all duration-300
+                  ${active === item.id ? "w-full" : "w-0"}
+                `}
+              ></span>
+            </a>
+          ))}
 
         </nav>
 
-        {/* MOBILE BUTTON */}
+        {/* MOBILE */}
         <button 
           onClick={() => setOpen(true)} 
-          className="md:hidden text-2xl"
+          className="md:hidden text-2xl text-blue-600"
         >
           ☰
         </button>
@@ -90,35 +133,27 @@ export default function Navbar() {
       >
         <button
           onClick={() => setOpen(false)}
-          className="absolute top-6 right-6 text-3xl hover:rotate-90 transition"
+          className="absolute top-6 right-6 text-3xl"
         >
           ✕
         </button>
 
         <div className="flex flex-col gap-10 text-4xl font-bold">
 
-          <a onClick={() => scrollToSection("trainer")} className="hover:text-blue-400 cursor-pointer">
-            Trainer
-          </a>
-
-          <a onClick={() => scrollToSection("offer")} className="hover:text-blue-400 cursor-pointer">
-            Our Way
-          </a>
-
-          <a onClick={() => scrollToSection("transformation")} className="hover:text-blue-400 cursor-pointer">
-            Transformations
-          </a>
-
-          <a onClick={() => scrollToSection("pricing")} className="hover:text-blue-400 cursor-pointer">
-            Shop
-          </a>
+          {links.map((item) => (
+            <a
+              key={item.id}
+              onClick={() => scrollToSection(item.id)}
+              className={`
+                cursor-pointer transition
+                ${active === item.id ? "text-blue-400" : ""}
+              `}
+            >
+              {item.name}
+            </a>
+          ))}
 
         </div>
-
-        <p className="absolute bottom-10 text-sm text-gray-400">
-          Transform your body. Build your mindset.
-        </p>
-
       </div>
     </>
   );

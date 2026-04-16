@@ -1,4 +1,4 @@
-import trainerImg from "../assets/images/trainer.jpg";
+import trainerImg from "../assets/images/after5.jpg";
 import gym1 from "../assets/images/gym1.jpg";
 import gym2 from "../assets/images/gym2.jpg";
 
@@ -13,22 +13,22 @@ export default function Trainer() {
 
           {/* glow */}
           <div className="absolute w-[250px] h-[250px] bg-blue-500/20 blur-[120px] rounded-full -z-10"></div>
+<img
+  src={trainerImg}
+  className="
+    w-[75%]
+    max-w-[340px]
+    sm:max-w-[380px]
+    md:max-w-[420px]
+    lg:max-w-[440px]
+    h-auto
+    rounded-2xl
+    shadow-[0_25px_60px_rgba(0,0,0,0.25)]
+    transition
 
-          <img
-            src={trainerImg}
-            className="
-              w-[75%] max-w-[380px]
-              sm:max-w-[420px]
-              md:max-w-[460px]
-              lg:max-w-[480px]
-              h-auto
-              object-cover
-              rounded-2xl
-              shadow-[0_25px_60px_rgba(0,0,0,0.25)]
-              transition
-              hover:scale-[1.02]
-            "
-          />
+  "
+  style={{ imageRendering: "auto" }}
+/>
 
         </div>
 

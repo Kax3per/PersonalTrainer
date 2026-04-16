@@ -10,4 +10,5 @@ export default defineConfig({
 //git add .
 //git commit -m "message"
 //git push 
-//npm run deploygit 
+//npm run deploy
+//git push --set-upstream origin main

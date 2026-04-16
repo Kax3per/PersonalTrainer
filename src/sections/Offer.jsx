@@ -13,55 +13,81 @@ export default function Offer() {
       <div className="grid lg:grid-cols-2 gap-14 mb-20 items-center">
         
         {/* FLIP CARD */}
-        <div
-          className="group relative h-[340px] cursor-pointer perspective"
-          onClick={() => setFlipped(!flipped)}
-        >
-          <div
-            className={`
-              relative w-full h-full
-              transition-transform duration-700
-              preserve-3d
-              ${flipped ? "rotate-y-180" : ""}
-              lg:group-hover:rotate-y-180
-            `}
-          >
-            
-            {/* FRONT */}
-            <div className="absolute inset-0 bg-black text-white rounded-2xl p-10 backface-hidden flex flex-col justify-between shadow-[0_20px_60px_rgba(0,0,0,0.4)]">
-              <div>
-                <p className="text-xs tracking-widest text-blue-400 mb-2">
-                  GET YOUR
-                </p>
+      {/* FLIP CARD */}
+<div
+  className="group relative h-[340px] cursor-pointer perspective"
+  onClick={() => setFlipped(!flipped)}
+>
+  <div
+    className={`
+      relative w-full h-full
+      transition-transform duration-700
+      preserve-3d
+      ${flipped ? "rotate-y-180" : ""}
+      lg:group-hover:rotate-y-180
+    `}
+  >
+    
+    {/* FRONT */}
+    <div className="absolute inset-0 bg-black text-white rounded-2xl p-10 backface-hidden flex flex-col justify-between shadow-[0_20px_60px_rgba(0,0,0,0.4)]">
 
-                <h2 className="text-4xl font-bold mb-4">
-                  MOVE ON 🚀
-                </h2>
+      <div>
+        <p className="text-xs tracking-widest text-blue-400 mb-2">
+          GET YOUR
+        </p>
 
-                <p className="text-sm opacity-70">
-                  Start your transformation journey today.
-                </p>
-              </div>
-            </div>
+        <h2 className="text-4xl font-bold mb-4">
+          MOVE ON 🚀
+        </h2>
 
-            {/* BACK */}
-            <div className="absolute inset-0 bg-white text-black rounded-2xl p-10 rotate-y-180 backface-hidden flex flex-col justify-between shadow-[0_20px_60px_rgba(0,0,0,0.2)] border border-gray-200">
-              <div>
-                <h3 className="text-2xl font-semibold mb-4 text-blue-600">
-                  Why it works 💪
-                </h3>
+        <p className="text-sm opacity-70">
+          Start your transformation journey today.
+          Real transformation is not just about how you look — it's about who you become.
+        </p>
+      </div>
 
-                <ul className="space-y-2 text-sm text-gray-600">
-                  <li>🔥 Step-by-step plan</li>
-                  <li>⚡ Fast progress</li>
-                  <li>🧠 Mindset system</li>
-                  <li>📈 Weekly tracking</li>
-                </ul>
-              </div>
-            </div>
+      {/* 🔥 NOWY DÓŁ */}
+      <div className="text-xs opacity-60 mt-6">
 
-          </div>
-        </div>
+        {/* DESKTOP */}
+        <p className="hidden lg:block">
+          👉 Hover to discover more
+        </p>
+
+        {/* MOBILE */}
+        <p className="lg:hidden">
+          👉 Tap to flip
+        </p>
+
+      </div>
+
+    </div>
+
+    {/* BACK */}
+    <div className="absolute inset-0 bg-white text-black rounded-2xl p-10 rotate-y-180 backface-hidden flex flex-col justify-between shadow-[0_20px_60px_rgba(0,0,0,0.2)] border border-gray-200">
+
+      <div>
+        <h3 className="text-2xl font-semibold mb-4 text-blue-600">
+          Why it works 💪
+        </h3>
+
+        <ul className="space-y-2 text-sm text-gray-600">
+          <li>🔥 Step-by-step plan</li>
+          <li>⚡ Fast progress</li>
+          <li>🧠 Mindset system</li>
+          <li>📈 Weekly tracking</li>
+        </ul>
+      </div>
+
+      {/* 🔥 DÓŁ BACK */}
+      <p className="text-xs text-gray-400">
+        Real results. Real system.
+      </p>
+
+    </div>
+
+  </div>
+</div>
 
         {/* TEXT */}
         <div className="max-w-xl">

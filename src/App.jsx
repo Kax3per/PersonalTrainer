@@ -5,6 +5,7 @@ import Offer from "./sections/Offer";
 import Transformation from "./sections/Transformation";
 import Trainer from "./sections/Trainer";
 import Pricing from "./sections/Pircing";
+import BackToTop from "./layout/BackToTop";
 
 function SectionWrapper({ children }) {
   return (
@@ -28,31 +29,40 @@ export default function App() {
   return (
     <PageWrapper>
 
-     
-    <section>
-<SectionWrapper>
-         <Navbar />
-        <Hero />
-      </SectionWrapper>
+      {/* 🔥 NAVBAR NA ZEWNĄTRZ */}
+      <Navbar />
 
-      <SectionWrapper>
-        <Trainer />
-      </SectionWrapper>
+      {/* 🔥 OFFSET */}
+      <div className="pt-[90px]">
 
-      <SectionWrapper>
-        <Offer />
-      </SectionWrapper>
+        <section>
 
-      <SectionWrapper>
-        <Transformation />
-      </SectionWrapper>
+          <SectionWrapper>
+            <Hero />
+          </SectionWrapper>
 
-      <SectionWrapper>
-        <Pricing />
-      </SectionWrapper>
+          <SectionWrapper>
+            <Trainer />
+          </SectionWrapper>
 
-    </section>
-      
+          <SectionWrapper>
+            <Offer />
+          </SectionWrapper>
+
+          <SectionWrapper>
+            <Transformation />
+          </SectionWrapper>
+
+          <SectionWrapper>
+            <Pricing />
+          </SectionWrapper>
+
+        </section>
+
+      </div>
+
+      <BackToTop />
+
     </PageWrapper>
   );
 }

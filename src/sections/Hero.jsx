@@ -3,10 +3,27 @@ import video from "../assets/video/mainVideo.mp4";
 
 export default function Hero() {
   const [open, setOpen] = useState(false);
+    const scrollToSection = (id) => {
+    const el = document.getElementById(id);
+    if (!el) return;
 
+    const navbarHeight = 90; // dopasuj jak trzeba
+
+    const y =
+      el.getBoundingClientRect().top +
+      window.pageYOffset -
+      navbarHeight;
+
+    window.scrollTo({
+      top: y,
+      behavior: "smooth",
+    });
+
+    setOpen(false);
+  };
   return (
     
-    <section className="
+    <section id="home" className="
       relative
       flex-1 grid lg:grid-cols-2
       px-6 md:px-12 lg:px-20
@@ -106,7 +123,7 @@ export default function Hero() {
             text-sm font-semibold
             shadow-lg shadow-blue-500/30
             hover:scale-105 transition
-          ">
+          "  onClick={() => scrollToSection("pricing")}>
             START NOW
           </button>
 
@@ -117,7 +134,7 @@ export default function Hero() {
             rounded-full
             text-sm font-semibold
             hover:bg-gray-100 transition
-          ">
+          "  onClick={() => scrollToSection("pricing")}>
             LEARN MORE
           </button>
 
