@@ -44,7 +44,7 @@ Error generating stack: `+e.message+`
         bg-white/60 backdrop-blur-xl\r
         border-b border-blue-100\r
         shadow-[0_8px_30px_rgba(37,99,235,0.15)]\r
-      `,children:[(0,f.jsxs)(`div`,{className:`text-lg font-bold tracking-wide`,children:[(0,f.jsx)(`span`,{className:`text-black`,children:`YOUR`}),` `,(0,f.jsx)(`span`,{className:`text-blue-600`,children:`BRAND`})]}),(0,f.jsx)(`nav`,{className:`hidden md:flex gap-10 text-sm font-medium`,children:a.map(e=>(0,f.jsxs)(`a`,{onClick:()=>i(e.id),className:`
+      `,children:[(0,f.jsxs)(`div`,{className:`text-lg font-bold tracking-wide`,children:[(0,f.jsx)(`span`,{className:`text-black`,children:`Personal`}),` `,(0,f.jsx)(`span`,{className:`text-blue-600`,children:`Trainer`})]}),(0,f.jsx)(`nav`,{className:`hidden md:flex gap-10 text-sm font-medium`,children:a.map(e=>(0,f.jsxs)(`a`,{onClick:()=>i(e.id),className:`
                 relative cursor-pointer transition
 
                 ${n===e.id?`text-blue-600`:`text-gray-600 hover:text-blue-600`}
