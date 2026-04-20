@@ -7,9 +7,29 @@ import Trainer from "./sections/Trainer";
 import Pricing from "./sections/Pircing";
 import BackToTop from "./layout/BackToTop";
 
+/**
+ * SectionWrapper Component (UI Container Layer)
+ * ----------------------------------------------
+ * Wrapper responsible for:
+ * - Visual separation between sections
+ * - Consistent styling (glass effect, shadows)
+ * - Spacing system across the entire app
+ *
+ * Responsibilities:
+ * - Provide padding around sections
+ * - Apply unified card-like appearance
+ * - Enhance depth via shadows and blur
+ *
+ * UX Concept:
+ * - Each section feels like a "block"
+ * - Soft UI / glassmorphism style
+ * - Subtle hover feedback for interactivity
+ */
 function SectionWrapper({ children }) {
   return (
     <div className="px-4 md:px-8 py-10">
+
+      {/* ================= CARD CONTAINER ================= */}
       <div className="
         bg-white/90 backdrop-blur-md
         rounded-3xl
@@ -21,38 +41,67 @@ function SectionWrapper({ children }) {
       ">
         {children}
       </div>
+
     </div>
   );
 }
 
+/**
+ * App Component (Main Layout Structure)
+ * --------------------------------------
+ * Root of the application responsible for:
+ * - Composing all sections
+ * - Managing layout hierarchy
+ * - Ensuring consistent spacing and flow
+ *
+ * Responsibilities:
+ * - Wrap app inside global layout (PageWrapper)
+ * - Render navigation (Navbar)
+ * - Stack all main sections in order
+ * - Apply spacing offset for fixed navbar
+ * - Provide global UI elements (BackToTop)
+ *
+ * UX Concept:
+ * - Vertical storytelling (Hero → Trainer → Offer → Transformation → Pricing)
+ * - Clear visual separation (SectionWrapper)
+ * - Smooth scroll experience with fixed navigation
+ */
 export default function App() {
   return (
+    /* ================= GLOBAL WRAPPER ================= */
     <PageWrapper>
 
-      {/* 🔥 NAVBAR NA ZEWNĄTRZ */}
+      {/* ================= NAVBAR ================= */}
+      {/* Positioned outside sections to stay fixed */}
       <Navbar />
 
-      {/* 🔥 OFFSET */}
-      <div className="pt-[90px]">
+      {/* ================= CONTENT OFFSET ================= */}
+      {/* Prevents content from being hidden under fixed navbar */}
+      <div className="pt-22.5">
 
         <section>
 
+          {/* ================= HERO ================= */}
           <SectionWrapper>
             <Hero />
           </SectionWrapper>
 
+          {/* ================= TRAINER ================= */}
           <SectionWrapper>
             <Trainer />
           </SectionWrapper>
 
+          {/* ================= OFFER ================= */}
           <SectionWrapper>
             <Offer />
           </SectionWrapper>
 
+          {/* ================= TRANSFORMATION ================= */}
           <SectionWrapper>
             <Transformation />
           </SectionWrapper>
 
+          {/* ================= PRICING ================= */}
           <SectionWrapper>
             <Pricing />
           </SectionWrapper>
@@ -61,6 +110,8 @@ export default function App() {
 
       </div>
 
+      {/* ================= BACK TO TOP ================= */}
+      {/* Floating utility button */}
       <BackToTop />
 
     </PageWrapper>

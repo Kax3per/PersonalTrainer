@@ -11,32 +11,86 @@ import after2 from "../assets/images/after2.jpg";
 import before3 from "../assets/images/before3.jpg";
 import after3 from "../assets/images/after3.jpg";
 
+/**
+ * Transformation Component (Progress + Results Section)
+ * -----------------------------------------------------
+ * Section focused on:
+ * - Showing transformation journey (visual progression)
+ * - Educating user about process (training, nutrition, mindset)
+ * - Driving deeper engagement (details view)
+ *
+ * Responsibilities:
+ * - Handle slider interaction (drag logic)
+ * - Map slider value → transformation stage
+ * - Manage details view (lazy load + transition)
+ * - Preload heavy before/after assets
+ *
+ * UX Concept:
+ * - Interactive storytelling (user controls progress)
+ * - Visual feedback (stage-based imagery)
+ * - Progressive reveal (details only after intent)
+ */
 export default function Transformation() {
+
+  /**
+   * SLIDER VALUE (0–100)
+   * Controls transformation progress
+   */
   const [value, setValue] = useState(0);
+
+  /**
+   * DRAG STATE
+   * Enables/disables slider interaction
+   */
   const [dragging, setDragging] = useState(false);
+
+  /**
+   * DETAILS VIEW STATE
+   * Toggles between main section and deep dive
+   */
   const [showDetails, setShowDetails] = useState(false);
+
+  /**
+   * LOADING STATE (for heavy assets)
+   */
   const [loadingDetails, setLoadingDetails] = useState(false);
 
+  /**
+   * REFS
+   * - sliderRef → interaction area
+   * - sectionRef → scroll positioning
+   */
   const sliderRef = useRef(null);
   const sectionRef = useRef(null);
 
+  /**
+   * HANDLE BACK FROM DETAILS
+   * ------------------------
+   * Returns user to main section and restores scroll position
+   */
   const handleBack = () => {
     setShowDetails(false);
 
     setTimeout(() => {
-     const yOffset = -100; // wysokość navbara
-const y =
-  sectionRef.current.getBoundingClientRect().top +
-  window.pageYOffset +
-  yOffset;
+      const yOffset = -100;
 
-window.scrollTo({
-  top: y,
-  behavior: "smooth",
-});
+      const y =
+        sectionRef.current.getBoundingClientRect().top +
+        window.pageYOffset +
+        yOffset;
+
+      window.scrollTo({
+        top: y,
+        behavior: "smooth",
+      });
     }, 50);
   };
 
+  /**
+   * GET CURRENT STAGE
+   * ------------------
+   * Maps slider value → transformation stage
+   */
   const getStage = () => {
     if (value < 50) return 0;
     if (value < 90) return 1;
@@ -45,12 +99,26 @@ window.scrollTo({
 
   const stage = getStage();
 
+  /**
+   * STAGE DATA
+   * Each stage has:
+   * - icon (visual feedback)
+   * - image (progress representation)
+   */
   const data = [
     { icon: "🍔", img: stage1 },
     { icon: "⚡", img: stage2 },
     { icon: "🔥", img: stage3 },
   ];
 
+  /**
+   * PRELOAD IMAGES
+   * ----------------
+   * Ensures:
+   * - smooth transition to details
+   * - no flicker / loading jumps
+   * - minimum perceived loading time
+   */
   const preloadImages = async () => {
     const images = [
       before1, after1,
@@ -78,11 +146,20 @@ window.scrollTo({
     }
   };
 
+  /**
+   * SLIDER DRAG LOGIC
+   * -------------------
+   * Handles:
+   * - mouse movement
+   * - touch movement (mobile)
+   * - value calculation
+   */
   useEffect(() => {
     const move = (e) => {
       if (!dragging || !sliderRef.current) return;
 
       const rect = sliderRef.current.getBoundingClientRect();
+
       let y = e.touches?.[0]?.clientY ?? e.clientY;
       y = y - rect.top;
 
@@ -108,60 +185,66 @@ window.scrollTo({
   }, [dragging]);
 
   return (
+    /* ================= TRANSFORMATION SECTION ================= */
     <section
       ref={sectionRef}
       id="transformation"
       className="relative px-4 sm:px-6 md:px-10 xl:px-20 py-20"
     >
 
-      {/* 🔥 subtle background glow */}
-      <div className="absolute top-[-100px] right-[-100px] w-[300px] h-[300px] bg-blue-500/10 blur-[120px] rounded-full"></div>
+      {/* ================= BACKGROUND GLOW ================= */}
+      <div className="absolute -top-25 -right-25 w-75 h-75 bg-blue-500/10 blur-[120px] rounded-full"></div>
 
+      {/* ================= MAIN VIEW ================= */}
       {!showDetails ? (
 
         <div className="flex flex-col xl:grid xl:grid-cols-[auto_auto_1fr] gap-12 xl:gap-16 items-center">
 
-          {/* IMAGE + SLIDER */}
+          {/* ================= IMAGE + SLIDER ================= */}
           <div className="flex items-center gap-6 w-full justify-center">
 
+            {/* STAGE IMAGE */}
             <img
               src={data[stage].img}
               className="
                 w-[85%] max-w-[320px]
-                sm:max-w-[420px]
-                md:max-w-[500px]
-                xl:w-[520px]
-                h-[320px]
-                sm:h-[480px]
-                md:h-[600px]
-                xl:h-[700px]
+                sm:max-w-105
+                md:max-w-125
+                xl:w-130
+                h-80
+                sm:h-120
+                md:h-150
+                xl:h-175
                 object-cover rounded-2xl
                 shadow-[0_30px_80px_rgba(0,0,0,0.3)]
               "
             />
 
-            {/* 🔥 SLIDER */}
+            {/* ================= VERTICAL SLIDER ================= */}
             <div
               ref={sliderRef}
               className="
                 relative
-                h-[320px] sm:h-[480px] md:h-[600px] xl:h-[700px]
-                w-[70px] xl:w-[90px]
+                h-80 sm:h-120 md:h-150 xl:h-175
+                w-17.5 xl:w-22.5
                 flex justify-center
                 touch-none cursor-pointer
               "
             >
-              <div className="absolute h-full w-[10px] bg-gray-200 rounded-full" />
+              {/* TRACK */}
+              <div className="absolute h-full w-2.5 bg-gray-200 rounded-full" />
 
+              {/* PROGRESS */}
               <div
                 className="
-                  absolute top-0 w-[10px] rounded-full
+                  absolute top-0 w-2.5 rounded-full
                   bg-blue-600
                   shadow-[0_0_20px_rgba(37,99,235,0.7)]
                 "
                 style={{ height: `${value}%` }}
               />
 
+              {/* HANDLE */}
               <div
                 onMouseDown={() => setDragging(true)}
                 onTouchStart={() => setDragging(true)}
@@ -184,9 +267,10 @@ window.scrollTo({
 
           </div>
 
-          {/* TEXT */}
+          {/* ================= TEXT CONTENT ================= */}
           <div className="max-w-xl text-center md:text-left">
 
+            {/* HEADLINE */}
             <h2 className="text-3xl md:text-5xl font-bold mb-6 leading-tight">
               REAL{" "}
               <span className="text-blue-600">
@@ -195,10 +279,12 @@ window.scrollTo({
               💪
             </h2>
 
+            {/* DESCRIPTION */}
             <p className="text-gray-600 mb-8 text-base md:text-lg">
               Real transformation is not just about how you look — it's about who you become.
             </p>
 
+            {/* SYSTEM BLOCKS */}
             <div className="mb-6">
               <h3 className="text-lg md:text-2xl font-semibold mb-2 text-blue-600">
                 Training System
@@ -226,6 +312,7 @@ window.scrollTo({
               </p>
             </div>
 
+            {/* CTA (LOAD DETAILS) */}
             <button
               onClick={async () => {
                 setLoadingDetails(true);
@@ -251,13 +338,14 @@ window.scrollTo({
 
       ) : (
 
+        /* ================= DETAILS VIEW ================= */
         <TransformationDetails onBack={handleBack} />
 
       )}
 
-      {/* LOADER */}
+      {/* ================= LOADER ================= */}
       {loadingDetails && (
-        <div className="fixed inset-0 bg-white/80 backdrop-blur-sm flex items-center justify-center z-[999]">
+        <div className="fixed inset-0 bg-white/80 backdrop-blur-sm flex items-center justify-center z-999">
           <div className="w-16 h-16 border-4 border-blue-600 border-t-transparent rounded-full animate-spin" />
         </div>
       )}
